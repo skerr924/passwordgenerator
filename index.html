@@ -10,6 +10,8 @@
   </head>
   <body>
     <div class="wrapper">
+
+      <!--Introductory headers -->
       <header>
         <h1>Password Generator</h1>
       </header>
@@ -30,7 +32,7 @@
                 </div>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="includeLowercase" value="lowercaseCbecked">
+                <input class="form-check-input" type="checkbox" id="includeLowercase" value="lowercaseChecked">
                 <label class="form-check-label" for="inlineCheckbox1">Include lowercase letters</label>
               </div>
               <div class="form-check form-check-inline">
@@ -45,8 +47,9 @@
                 <input class="form-check-input" type="checkbox" id="includeSpecial" value="specialChecked">
                 <label class="form-check-label" for="inlineCheckbox1">Include special characters</label>
               </div>
-
             </form>
+
+          <!-- text area which outputs the password upon generation -->
           <textarea
             readonly
             id="password"
@@ -54,9 +57,13 @@
             aria-label="Generated Password"
           ></textarea>
         </div>
+
+          <!--generate password by clicking here -->
         <div class="card-footer">
           <button id="generate" class="btn">Generate Password</button>
         </div>
+
+
       </div>
     </div>
     <script src="script.js"></script>
