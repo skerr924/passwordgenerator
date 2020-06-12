@@ -5,6 +5,7 @@ var includeUppercase = document.querySelector(".includeUppercase").value;
 var includeNumbers = document.querySelector(".includeNumbers").value;
 var includeSpecial = dcument.querySelector(".includeSpecial").value;
 var charset = [ ];
+var retVal; 
 
 // Write password to the #password input
 function writePassword() {
@@ -20,8 +21,8 @@ function writePassword() {
 
 function generateCharset () {
   //some qualifying information is required 
-  if(document.getElementById('includeLowercase').checked | document.getElementById('includeUppercase').checked | 
-  document.getElementById('includeNumbers').checked | document.getElementById('includeSpecial').checked {
+  if(document.getElementById('includeLowercase')===true || document.getElementById('includeUppercase')===true || 
+  document.getElementById('includeNumbers')===true || document.getElementById('includeSpecial')===true) {
 
 
     if (includeLowercase) {
@@ -39,21 +40,17 @@ function generateCharset () {
     
     append (charset);
   
-}
+  }
 
-//alerts user that sufficient information was not provided 
-}else {
-  alert ("please provide some qualifying information for your password");
-}
-
-
-
+  //alerts user that sufficient information was not provided 
+  else {
+   alert ("please provide some qualifying information for your password");
+  }
 
 //Generate the password using the charset determined above 
 function generatePassword() {
-  var length = document.querySelector("#selectNum").input;
-      charset = generateCharSet ();
-      retVal = "";
+  var length = document.querySelector("#selectNum").value;
+  function generateCharset()
   for (var i = 0, n = charset.length; i < length; ++i) {
       retVal += charset.charAt(Math.floor(Math.random() * n));
   }
