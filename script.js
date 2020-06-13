@@ -1,7 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 var includeLowercase = document.querySelector("#includeLowercase");
-console.log(includeLowercase);
 var includeUppercase = document.querySelector("#includeUppercase");
 var includeNumbers = document.querySelector("#includeNumbers");
 var includeSpecial = document.querySelector("#includeSpecial");
@@ -10,7 +9,6 @@ var retVal;
 
 // Write password to the #password input
 function writePassword() {
-  console.log("this function is called");
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
@@ -25,12 +23,11 @@ function generateCharset () {
   //some qualifying information is required 
   if(includeLowercase.checked === true || includeUppercase.checked ===true || 
   includeNumbers.checked ===true || includeSpecial.checked ===true) {
-    console.log ("line28");
 
     if (includeLowercase.checked) {
       charset += "abcdefghijklmnopqrstuvwxyz";
     }
-    console.log(charset);
+    
     if (includeUppercase.checked) {
       charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     }
@@ -41,7 +38,6 @@ function generateCharset () {
       charset += "!@#$%^&*()+=<>?/";
     }
     
-    console.log(charset);
   }
 
   //alerts user that sufficient information was not provided 
