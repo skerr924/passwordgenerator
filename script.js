@@ -1,14 +1,16 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var includeLowercase = document.querySelector(".includeLowercase").value;
-var includeUppercase = document.querySelector(".includeUppercase").value;
-var includeNumbers = document.querySelector(".includeNumbers").value;
-var includeSpecial = dcument.querySelector(".includeSpecial").value;
-var charset = [ ];
+var includeLowercase = document.querySelector("#includeLowercase");
+console.log(includeLowercase);
+var includeUppercase = document.querySelector("#includeUppercase");
+var includeNumbers = document.querySelector("#includeNumbers");
+var includeSpecial = document.querySelector("#includeSpecial");
+var charset = "";
 var retVal; 
 
 // Write password to the #password input
 function writePassword() {
+  console.log("this function is called");
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
@@ -21,38 +23,40 @@ function writePassword() {
 
 function generateCharset () {
   //some qualifying information is required 
-  if(document.getElementById('includeLowercase')===true || document.getElementById('includeUppercase')===true || 
-  document.getElementById('includeNumbers')===true || document.getElementById('includeSpecial')===true) {
+  if(includeLowercase.checked === true || includeUppercase.checked ===true || 
+  includeNumbers.checked ===true || includeSpecial.checked ===true) {
+    console.log ("line28");
 
-
-    if (includeLowercase) {
-      charset.push("abcdefghijklmnopqrstuvwxyz");
+    if (includeLowercase.checked) {
+      charset += "abcdefghijklmnopqrstuvwxyz";
     }
-    if (includeUppercase) {
-      charset.push("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    console.log(charset);
+    if (includeUppercase.checked) {
+      charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     }
-    if (includeNumbers) {
-      charset.push("0123456789");
+    if (includeNumbers.checked) {
+      charset += "0123456789";
     }
-    if (includeSpecial) {
-      charset.push("!@#$%^&*()+=<>?/");
+    if (includeSpecial.checked) {
+      charset += "!@#$%^&*()+=<>?/";
     }
     
-    append (charset);
-  
+    console.log(charset);
   }
 
   //alerts user that sufficient information was not provided 
   else {
    alert ("please provide some qualifying information for your password");
   }
+}
 
 //Generate the password using the charset determined above 
 function generatePassword() {
-  var length = document.querySelector("#selectNum").value;
-  function generateCharset()
-  for (var i = 0, n = charset.length; i < length; ++i) {
-      retVal += charset.charAt(Math.floor(Math.random() * n));
+  var retVal="";
+  var length = document.querySelector(".selectNum").value;
+  generateCharset();
+  for (var i = 0; i < length; i++) {
+   retVal += charset.charAt(Math.floor(Math.random() * charset.length));
   }
   return retVal;
 }
