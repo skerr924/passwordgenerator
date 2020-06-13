@@ -42,7 +42,7 @@ function generateCharset() {
 
   //alerts user that sufficient information was not provided 
   else {
-    alert("please provide some qualifying information for your password");
+    alert("Looks like you didn't give us enough information. What type of characters do you need in your password?");
   }
 }
 
@@ -52,7 +52,7 @@ function generatePassword() {
   var length = document.querySelector(".selectNum").value;
   if (length < 8 || length > 128) {
     // return("Please select a password length between 8 and 128");
-    alert("Please select a password length between 8 and 128");
+    alert("Oops! We only generate password between 8 and 128 characters long. Try again!");
   }
   else {
     generateCharset();
